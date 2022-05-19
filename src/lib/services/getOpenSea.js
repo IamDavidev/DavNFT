@@ -1,6 +1,6 @@
 import { API_URL_BASE } from "../../config/Api.instance";
 
-export async function getOpenSea(params) { // { limit, offset }
+export async function getOpenSeaData(params) { // { limit, offset }
     try {
         const response = await API_URL_BASE.get('/bundles', {
             params,// params: params = { limit, offset }
