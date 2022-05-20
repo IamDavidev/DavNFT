@@ -1,18 +1,13 @@
 import { useEffect, useReducer } from 'react'
+import { OPEN_SEA_INITIAL_STATE } from '../../constants/openSea.const'
 import { _SET_DATA_OPEN_SEA, _SET_LIMIT_OPEN_SEA, _SET_LOADING_OPEN_SEA, _SET_OFFSET_OPEN_SEA } from '../actions/openSea.actions'
 import OpenSeaApi from '../api/openSea.api'
 import { openSeaReducer } from '../reducers/opensea.reducer'
 
 
 function useOpenSea() {
-    const [openSea, setOpenSea] = useReducer(openSeaReducer, {
-        results: [],
-        loading: false,
-        err: null,
-        limit: 10,
-        offset: 0
-    })
-    console.log(">>hook openSea : ", openSea)
+    const [openSea, setOpenSea] = useReducer(openSeaReducer, OPEN_SEA_INITIAL_STATE)
+
 
     const setOpenSeaData = results => setOpenSea({
         type: _SET_DATA_OPEN_SEA,
@@ -34,6 +29,7 @@ function useOpenSea() {
     })
 
     useEffect(() => {
+        // function handler to fetch data from OpenSea
         OpenSeaApi({ limit: openSea.limit, offset: openSea.offset, setOpenSeaData, setOpenSeaLoading })
     }, [openSea.limit, openSea.offset])
 
@@ -43,6 +39,5 @@ function useOpenSea() {
         setOpenSeaOffset
     }
 }
-
 
 export default useOpenSea;

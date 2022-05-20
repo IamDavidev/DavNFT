@@ -12,13 +12,13 @@ function App() {
 				more 5 nft
 			</button>
 			{loading && <p>loading ... </p>}
-			<ul className='flex flex-wrap gap-2 '>
+			<ul className='flex flex-wrap gap-4 '>
 				{openSea &&
 					openSea?.results?.bundles?.map(open => {
 						return (
 							<li
 								key={open.slug}
-								className='border-2 border-purpleLite border-solid p-4'>
+								className='border-4 rounded-2xl border-purpleLite border-solid p-4'>
 								{open.name}
 							</li>
 						);

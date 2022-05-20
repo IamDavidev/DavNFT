@@ -1,5 +1,7 @@
 import { _SET_DATA_OPEN_SEA, _SET_ERR_OPEN_SEA, _SET_LIMIT_OPEN_SEA, _SET_LOADING_OPEN_SEA, _SET_OFFSET_OPEN_SEA } from "../actions/openSea.actions.js";
 
+
+// reducer openSea  
 export const openSeaReducer = (state, action) => {
     switch (action.type) {
         case _SET_DATA_OPEN_SEA: {
