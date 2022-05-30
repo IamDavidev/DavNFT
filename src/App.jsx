@@ -4,8 +4,6 @@ import useOpenSea from './lib/hooks/useOpenSea';
 function App() {
 	const { openSea, loading, setOpenSeaLimit } = useOpenSea();
 
-	console.log(openSea);
-
 	return (
 		<div className='bg-black p-4  min-h-screen w-ful text-white'>
 			<h1 className='text-center text-2xl text-purple'>App OpenSea</h1>
@@ -31,16 +29,17 @@ function App() {
 						);
 					})}
 			</ul> */}
-			<section className='flex flex-wrap justify-center items-center gap-6'>
-				{openSea?.results?.collections.map(collecton => {
+			<section className=' my-8 flex flex-wrap justify-center items-center gap-6'>
+				{openSea?.results?.collections.map(collection => {
+					if (!collection) return null;
 					return (
 						<CardCollection
-							key={collecton.id}
-							banner={collecton.banner}
-							creator={collecton.creator}
-							image={collecton.imgCollection}
-							desciption={collecton.description}
-							name={collecton.nameCollection}
+							key={collection.id}
+							banner={collection.banner}
+							creator={collection.creator}
+							image={collection.imgCollection}
+							desciption={collection.description}
+							name={collection.nameCollection}
 						/>
 					);
 				})}

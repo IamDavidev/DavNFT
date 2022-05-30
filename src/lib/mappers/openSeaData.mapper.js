@@ -7,24 +7,37 @@
  */
 
 //  asset_contract
-export const mapperDataOpenSea = (objData) => {
+export const mapperDataOpenSea = (ObjApiOpenSea) => {
+
+    if (!ObjApiOpenSea.asset_contract) return;
+    if (!ObjApiOpenSea.sell_orders) return;
     return {
-        banner: objData.asset_contract && objData.asset_contract.collection.banner_image_url || '',
-        UsdPrice: objData.sell_orders[0].payment_token_contract.usd_price,
-        EthPriceDecimals: objData.sell_orders[0].payment_token_contract.decimals,
-        description: objData.asset_contract && objData.asset_contract.description,
+        banner: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.collection.banner_image_url || '',
+        UsdPrice: ObjApiOpenSea.sell_orders[0].payment_token_contract.usd_price,
+        EthPriceDecimals: ObjApiOpenSea.sell_orders[0].payment_token_contract.decimals,
+        description: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.description,
+        // assets: {
+        //     images: ObjApiOpenSea.assets.map(asset => ({
+        //         url: asset.image_url,
+        //         name: asset.name,
+        //         link: asset.permalink,
+        //     })),
+        // },
         assets: {
-            images: objData.assets.map(asset => ({
-                url: asset.image_url,
-                name: asset.name,
-                link: asset.permalink,
-            })),
+            images: ObjApiOpenSea.assets.map(mapperAssets)
         },
-        display: objData.asset_contract && objData.asset_contract.collection.display_data.card_display_style,
-        url: objData.permalink,
-        symbol: objData.asset_contract && objData.asset_contract.symbol,
-        creator: objData.asset_contract && objData.asset_contract.collection.medium_username,
-        nameCollection: objData.asset_contract && objData.asset_contract.collection.name,
-        imgCollection: objData.asset_contract && objData.asset_contract.image_url,
+        display: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.collection.display_data.card_display_style,
+        url: ObjApiOpenSea.permalink,
+        symbol: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.symbol,
+        creator: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.collection.medium_username,
+        nameCollection: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.collection.name,
+        imgCollection: ObjApiOpenSea.asset_contract && ObjApiOpenSea.asset_contract.image_url,
     }
 }
+
+
+export const mapperAssets = (ObjDataAssets) => ({
+    url: ObjDataAssets.image_url,
+    name: ObjDataAssets.name,
+    link: ObjDataAssets.permalink,
+})
