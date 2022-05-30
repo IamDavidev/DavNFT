@@ -2,8 +2,6 @@ import useOpenSea from './lib/hooks/useOpenSea';
 
 function App() {
 	const { openSea, loading, setOpenSeaLimit } = useOpenSea();
-	console.log('openSea', openSea);
-	console.log('limit', openSea?.limit);
 
 	return (
 		<div className='bg-black p-4  min-h-screen w-ful text-white'>
@@ -12,14 +10,20 @@ function App() {
 				more 5 nft
 			</button>
 			{loading && <p>loading ... </p>}
-			<ul className='flex flex-wrap gap-4 '>
+
+			<ul className='flex flex-wrap gap-4 justify-center'>
 				{openSea &&
 					openSea?.results?.bundles?.map(open => {
 						return (
 							<li
 								key={open.slug}
-								className='border-4 rounded-2xl border-purpleLite border-solid p-4'>
-								{open.name}
+								className='border-4 rounded-2xl border-purpleLite border-solid p-4 w-96'>
+								{open.asset_contract.collection?.name}
+								<img
+									src={open?.asset_contract.collection?.banner_image_url}
+									alt=''
+								/>
+								<img src={open?.asset_contract.collection?.image_url} />
 							</li>
 						);
 					})}
@@ -28,4 +32,11 @@ function App() {
 	);
 }
 
+/**
+ * banner /
+ *  price /
+ * description /
+ * assest(imgaes) /
+ * display(data)/
+ */
 export default App;
