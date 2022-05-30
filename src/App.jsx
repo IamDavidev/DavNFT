@@ -1,7 +1,10 @@
+import CardCollection from './components/CardCollection.component';
 import useOpenSea from './lib/hooks/useOpenSea';
 
 function App() {
 	const { openSea, loading, setOpenSeaLimit } = useOpenSea();
+
+	console.log(openSea);
 
 	return (
 		<div className='bg-black p-4  min-h-screen w-ful text-white'>
@@ -11,7 +14,7 @@ function App() {
 			</button>
 			{loading && <p>loading ... </p>}
 
-			<ul className='flex flex-wrap gap-4 justify-center'>
+			{/* <ul className='flex flex-wrap gap-4 justify-center'>
 				{openSea &&
 					openSea?.results?.bundles?.map(open => {
 						return (
@@ -27,7 +30,23 @@ function App() {
 							</li>
 						);
 					})}
-			</ul>
+			</ul> */}
+			<section className='flex flex-wrap justify-center items-center gap-6'>
+				{openSea?.results?.collections.map(collecton => {
+					return (
+						<CardCollection
+							key={collecton.id}
+							banner={collecton.banner}
+							creator={collecton.creator}
+							image={collecton.imgCollection}
+							desciption={collecton.description}
+							name={collecton.nameCollection}
+						/>
+					);
+				})}
+			</section>
+
+			{/* <CardCollection /> */}
 		</div>
 	);
 }
@@ -39,4 +58,5 @@ function App() {
  * assest(imgaes) /
  * display(data)/
  */
+
 export default App;

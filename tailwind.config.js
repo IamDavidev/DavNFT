@@ -8,7 +8,8 @@ module.exports = {
       black: "#13131a",
       purple: "#742ff6",
       purpleLite: "#cfbdec",
-      white: "#ffffff"
+      white: "#ffffff",
+      card: '#3c485da6'
     }
   },
   plugins: [],

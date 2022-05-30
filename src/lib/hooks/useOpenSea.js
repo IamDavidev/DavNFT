@@ -1,6 +1,8 @@
 import { useEffect, useReducer } from 'react'
 import { OPEN_SEA_INITIAL_STATE } from '../../constants/openSea.const'
-import { OPEN_SEA_ACIONS, _SET_DATA_OPEN_SEA, _SET_LIMIT_OPEN_SEA, _SET_LOADING_OPEN_SEA, _SET_OFFSET_OPEN_SEA } from '../actions/openSea.actions'
+import { OPEN_SEA_ACIONS } from '../actions/openSea.actions'
+// import { OPEN_SEA_ACIONS, _SET_DATA_OPEN_SEA, _SET_LIMIT_OPEN_SEA, _SET_LOADING_OPEN_SEA, _SET_OFFSET_OPEN_SEA } from '../actions/openSea.actions'
+
 import OpenSeaApi from '../api/openSea.api'
 import { openSeaReducer } from '../reducers/opensea.reducer'
 
@@ -27,9 +29,9 @@ function useOpenSea() {
     //     type: _SET_OFFSET_OPEN_SEA,
     // args: { offset }
     // })
+
     const initialSearchOpenSea = () => setOpenSea({
         type: OPEN_SEA_ACIONS._INITIAL_SEARCH_OPEN_SEA,
-        // args : 
     })
 
     const successSearchOpenSea = results => setOpenSea({

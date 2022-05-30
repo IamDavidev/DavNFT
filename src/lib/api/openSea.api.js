@@ -1,3 +1,4 @@
+import { mapperDataOpenSea } from "../mappers/openSeaData.mapper";
 import { getOpenSeaData } from "../services/getOpenSea";
 
 
@@ -6,18 +7,17 @@ async function OpenSeaApi({ limit, offset, init, success, error }) {
     // setOpenSeaLoading(true)
     init()
 
-    try {
+    const response = await getOpenSeaData({ limit, offset });
+    // await setOpenSeaData(response.data);
+    // await setOpenSeaLoading(false)
 
-        const response = await getOpenSeaData({ limit, offset });
-        // await setOpenSeaData(response.data);
-        // await setOpenSeaLoading(false)
-        success(response.data)
+    console.log(">>dta<", response.data);
+    const res = { collections: response.data.bundles.map(mapperDataOpenSea) }
 
-    }
-    catch (err) {
-        error(err)
-    }
+    if (!response.success) return error(response.MessageErr)
 
+
+    await success(res)
 }
 
 export default OpenSeaApi;
