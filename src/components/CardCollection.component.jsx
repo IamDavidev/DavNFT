@@ -1,5 +1,4 @@
 function CardCollection({ banner, name, creator, desciption, image }) {
-	// banner / name / creator /
 	return (
 		<>
 			<article className='w-96 bg-card p-0 rounded-2xl overflow-hidden'>
