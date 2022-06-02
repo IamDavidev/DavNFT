@@ -8,8 +8,12 @@ function App() {
 	const [logged, setLogged] = useState(false);
 
 	return (
-		<div className='bg-black p-4  min-h-screen w-ful text-white'>
-			<button onClick={() => setLogged(!logged)}>logged</button>
+		<div className='bg-black p-4  min-h-screen w-ful text-light font-manrope overflow-hidden'>
+			<button
+				onClick={() => setLogged(!logged)}
+				class='bg-glow_gree px-4 py-2 rounded-2xl text-dark font-semibold '>
+				logged
+			</button>
 			<BrowserRouter>
 				{logged ? <RoutesPrivates /> : <RoutesPublics />}
 			</BrowserRouter>

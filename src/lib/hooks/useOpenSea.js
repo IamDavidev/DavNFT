@@ -10,26 +10,6 @@ import { openSeaReducer } from '../reducers/opensea.reducer'
 function useOpenSea() {
     const [openSea, setOpenSea] = useReducer(openSeaReducer, OPEN_SEA_INITIAL_STATE)
 
-
-    // const setOpenSeaData = results => setOpenSea({
-    //     type: _SET_DATA_OPEN_SEA,
-    //     args: { results }
-    // })
-
-    // const setOpenSeaLoading = (loading) => setOpenSea({
-    //     type: _SET_LOADING_OPEN_SEA,
-    //     args: { loading }
-    // })
-
-    // const setOpenSeaLimit = (limit) => setOpenSea({
-    //     type: _SET_LIMIT_OPEN_SEA,
-    //     args: { limit }
-    // })
-    // const setOpenSeaOffset = (offset) => setOpenSea({
-    //     type: _SET_OFFSET_OPEN_SEA,
-    // args: { offset }
-    // })
-
     const initialSearchOpenSea = () => setOpenSea({
         type: OPEN_SEA_ACIONS._INITIAL_SEARCH_OPEN_SEA,
     })
@@ -55,7 +35,6 @@ function useOpenSea() {
     })
 
     useEffect(() => {
-        // function handler to fetch data from OpenSea
         OpenSeaApi({
             limit: openSea.limit,
             offset: openSea.offset,

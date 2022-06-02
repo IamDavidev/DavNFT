@@ -4,7 +4,7 @@ import useOpenSea from '../lib/hooks/useOpenSea';
 
 const GridCollections = () => {
 	const { openSea } = useOpenSea();
-	// console.log(openSea);
+	console.log(openSea);
 	return (
 		<>
 			<section className=' my-8 flex flex-wrap  justify-center items-center gap-6 min-h-screen'>

@@ -1,4 +1,4 @@
-function CardCollection({ banner, name, creator, desciption, image }) {
+const CardCollection = ({ banner, name, creator, desciption, image }) => {
 	return (
 		<>
 			<article className='w-96 bg-card p-0 rounded-2xl overflow-hidden'>
@@ -20,6 +20,6 @@ function CardCollection({ banner, name, creator, desciption, image }) {
 			</article>
 		</>
 	);
-}
+};
 
 export default CardCollection;
