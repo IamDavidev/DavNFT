@@ -5,10 +5,20 @@ module.exports = {
   ],
   theme: {
     colors: {
-      black: "#13131a",
-      purple: "#742ff6",
-      purpleLite: "#cfbdec",
-      white: "#ffffff"
+      black: "#000",
+      glow_gree: "#36f599",
+      purple: "#4c67f4",
+      dark: "#1c2541",
+      light: "#f5f5f5",
+      gray: {
+        100: "#f8f9fb",
+        300: "#f1f4f7",
+        500: "#7d8cac",
+        900: "#485470",
+      }
+    },
+    fontFamily: {
+      'manrope': ['Manrope', 'sans-serif'],
     }
   },
   plugins: [],

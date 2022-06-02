@@ -1,42 +1,24 @@
-import useOpenSea from './lib/hooks/useOpenSea';
+import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import RoutesPrivates from './routes/private.routes';
+import RoutesPublics from './routes/public.routes';
 
 function App() {
-	const { openSea, loading, setOpenSeaLimit } = useOpenSea();
+	const [logged, setLogged] = useState(false);
 
 	return (
-		<div className='bg-black p-4  min-h-screen w-ful text-white'>
-			<h1 className='text-center text-2xl text-purple'>App OpenSea</h1>
-			<button onClick={() => setOpenSeaLimit(openSea?.limit + 5)}>
-				more 5 nft
+		<div className='bg-black p-4  min-h-screen w-ful text-light font-manrope overflow-hidden'>
+			<button
+				onClick={() => setLogged(!logged)}
+				class='bg-glow_gree px-4 py-2 rounded-2xl text-dark font-semibold '>
+				logged
 			</button>
-			{loading && <p>loading ... </p>}
-
-			<ul className='flex flex-wrap gap-4 justify-center'>
-				{openSea &&
-					openSea?.results?.bundles?.map(open => {
-						return (
-							<li
-								key={open.slug}
-								className='border-4 rounded-2xl border-purpleLite border-solid p-4 w-96'>
-								{open.asset_contract.collection?.name}
-								<img
-									src={open?.asset_contract.collection?.banner_image_url}
-									alt=''
-								/>
-								<img src={open?.asset_contract.collection?.image_url} />
-							</li>
-						);
-					})}
-			</ul>
+			<BrowserRouter>
+				{logged ? <RoutesPrivates /> : <RoutesPublics />}
+			</BrowserRouter>
 		</div>
 	);
 }
 
-/**
- * banner /
- *  price /
- * description /
- * assest(imgaes) /
- * display(data)/
- */
 export default App;
