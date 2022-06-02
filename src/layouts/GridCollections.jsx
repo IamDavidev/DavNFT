@@ -15,10 +15,10 @@ const GridCollections = () => {
 						<CardCollection
 							key={collection.id}
 							banner={collection.banner}
-							creator={collection.creator}
+							creator={collection.symbol}
 							image={collection.imgCollection}
-							desciption={collection.description}
 							name={collection.nameCollection}
+							address={collection.address}
 						/>
 					);
 				})}
