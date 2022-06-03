@@ -19,6 +19,7 @@ const GridCollections = () => {
 							image={collection.imgCollection}
 							name={collection.nameCollection}
 							address={collection.address}
+							slug={collection.slug}
 						/>
 					);
 				})}
