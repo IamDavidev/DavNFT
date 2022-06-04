@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Link, useParams } from 'react-router-dom';
 import GridItemsCollections from '../layouts/GridItemsCollections.layout';
 
@@ -101,7 +102,9 @@ const Collection = () => {
 						<span className='block uppercase text-dark'>market cap</span>
 					</div>
 				</div>
-				<p className='text-center w-[60ch]'>{collection.description}</p>
+			</div>
+			<div className='text-center'>
+				<ReactMarkdown children={collection.description} />
 			</div>
 			<nav className=' relative flex flex-row items-center justify-center gap-4 py-2 my-12 after:w-full after:h-1 after:bg-dark after:absolute after:bottom-0 after:right-0 after:left-0'>
 				<button className='border border-solid border-dark px-8 py-2 rounded-2xl'>

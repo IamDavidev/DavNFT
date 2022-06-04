@@ -12,6 +12,7 @@ export default function useAssetsNFTs(address) {
     const [assetsNFTs, setAssetsNFTs] = useReducer(assetsNFTsReducer, INITIAL_STATE_ASSETS_NFTS)
 
 
+    // actions search and get assets nfts
     const initialAssetsNFTs = () => setAssetsNFTs({
         type: ACTIONS_ASSETS_NFTS._INITIAL_
     })
@@ -29,6 +30,28 @@ export default function useAssetsNFTs(address) {
         type: ACTIONS_ASSETS_NFTS._FAILURE_GET_ASSETS_,
         args: {
             error
+        }
+    })
+
+
+    // actions to change params of search assets nfts
+    const setLimitPageAssetsNFTs = limit => setAssetsNFTs({
+        type: ACTIONS_ASSETS_NFTS._SET_LIMIT_PAGE_,
+        args: {
+            limit
+        }
+    })
+
+    const setOrderDirectionAssetsNFTs = order_direction => setAssetsNFTs({
+        type: ACTIONS_ASSETS_NFTS._SET_ORDER_DIRECTION_,
+        args: {
+            order_direction
+        }
+    })
+    const setIncludeOrdersAssetsNfTs = include_orders => setAssetsNFTs({
+        type: ACTIONS_ASSETS_NFTS._SET_INCLUDE_ORDERS_,
+        args: {
+            include_orders
         }
     })
 
@@ -51,6 +74,9 @@ export default function useAssetsNFTs(address) {
     ]);
 
     return {
-        assetsNFTs
+        assetsNFTs,
+        setLimitPageAssetsNFTs,
+        setOrderDirectionAssetsNFTs,
+        setIncludeOrdersAssetsNfTs
     };
 }
