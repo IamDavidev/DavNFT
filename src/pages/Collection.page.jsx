@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import GridItemsCollections from '../layouts/GridItemsCollections.layout';
 
 // const options = { method: 'GET' };
 
@@ -46,7 +47,7 @@ export function useCollectionNFts(slug) {
 }
 
 const Collection = () => {
-	const { slug } = useParams();
+	const { slug, address } = useParams();
 	const { collection } = useCollectionNFts(slug);
 	console.log('Collection <<slugData>>', collection);
 
@@ -107,9 +108,7 @@ const Collection = () => {
 				<Link to='/'>items</Link>
 				<Link to='/'>stats</Link>
 			</nav>
-			<footer>
-				<Outlet />
-			</footer>
+			<footer>{<GridItemsCollections address={address} />}</footer>
 		</div>
 	);
 };

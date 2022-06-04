@@ -1,34 +1,25 @@
-// import React from 'react';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-const options = { method: 'GET' };
+import useAssetsNFTs from '../lib/hooks/useAssetsNFTs.hook';
 
-const MIN_ITEMS = 10;
+const GridItemsCollections = ({ address }) => {
+	const { assetsNFTs } = useAssetsNFTs(address);
 
-export async function getAssetsCollection(address) {
-	const [assets, setAssets] = useState([]);
+	console.log({ assetsNFTs });
 
-	fetch(
-		`https://api.opensea.io/api/v1/asset/${address}/1/?include_orders=false`,
-		options
-	)
-		.then(response => response.json())
-		.then(response => console.log('Assets :>>', response))
-		.catch(err => console.error(err));
-
-	console.log('>>assets', assets);
-}
-
-const GridItemsCollections = () => {
-	const { address } = useParams();
-
-	useEffect(() => {
-		getAssetsCollection(address);
-	}, []);
+	console.log('address>>', address);
 
 	return (
-		<div>
-			<span>{address}</span>
+		<div className='flex flex-row flex-wrap items-center justify-center'>
+			{assetsNFTs?.results?.assets?.map(item => {
+				return (
+					<div key={item.id} className='w-1/4 p-5 rounded-2xl'>
+						<img
+							src={item.image_url}
+							alt={item.name}
+							className='w-full rounded-2xl'
+						/>
+					</div>
+				);
+			})}
 		</div>
 	);
 };

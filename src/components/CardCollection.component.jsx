@@ -27,7 +27,7 @@ const CardCollection = ({ banner, name, image, address, slug }) => {
 							{/* <span className='inline text-glow_gree'>{price}ETH</span> */}
 						</figure>
 						<Link
-							to={`/collection/${address}/${slug}/items`}
+							to={`/collection/${address}/${slug}`}
 							className='border-solid border border-glow_gree p-2  rounded-2xl text-glow_gree'>
 							more
 							<RowIcon color='#36f599' style={'inline mx-2'} />
