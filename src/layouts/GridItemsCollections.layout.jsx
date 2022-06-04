@@ -9,7 +9,7 @@ const GridItemsCollections = ({ address }) => {
 
 	return (
 		<div className='flex flex-row flex-wrap items-center justify-center'>
-			{assetsNFTs?.results?.assets?.map(item => {
+			{assetsNFTs?.results?.map(item => {
 				return (
 					<div key={item.id} className='w-1/4 p-5 rounded-2xl'>
 						<img

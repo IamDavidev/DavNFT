@@ -6,7 +6,7 @@ export const ORDER_DIRECTION = {
 // des => desa
 
 export const INITIAL_STATE_ASSETS_NFTS = {
-    results: {},
+    results: [],
     loading: false,
     error: null,
     limit: 10,

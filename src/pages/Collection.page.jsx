@@ -25,7 +25,6 @@ export async function getCollectionNFTs({
 			.then(data => data);
 		setCollection(response.collection);
 	} catch (err) {
-		console.log(err);
 		setError(err);
 	}
 }
@@ -49,7 +48,7 @@ export function useCollectionNFts(slug) {
 const Collection = () => {
 	const { slug, address } = useParams();
 	const { collection } = useCollectionNFts(slug);
-	console.log('Collection <<slugData>>', collection);
+	// console.log('Collection <<slugData>>', collection);
 
 	return (
 		<div>
@@ -104,9 +103,13 @@ const Collection = () => {
 				</div>
 				<p className='text-center w-[60ch]'>{collection.description}</p>
 			</div>
-			<nav className='flex flex-row items-center justify-center gap'>
-				<Link to='/'>items</Link>
-				<Link to='/'>stats</Link>
+			<nav className=' relative flex flex-row items-center justify-center gap-4 py-2 my-12 after:w-full after:h-1 after:bg-dark after:absolute after:bottom-0 after:right-0 after:left-0'>
+				<button className='border border-solid border-dark px-8 py-2 rounded-2xl'>
+					items
+				</button>
+				<button className='border border-solid border-dark  px-8 py-2 rounded-2xl'>
+					stats
+				</button>
 			</nav>
 			<footer>{<GridItemsCollections address={address} />}</footer>
 		</div>

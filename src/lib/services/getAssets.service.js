@@ -11,7 +11,6 @@ export default async function getAssestNFTs({
         )
             .then(response => response.json())
             .then(response => response);
-        console.log({ response })
         return response;
     } catch (err) {
         console.log(err);

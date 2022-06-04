@@ -36,7 +36,6 @@ export default function useAssetsNFTs(address) {
     useEffect(() => {
         assetsApiNFTs({
             init: initialAssetsNFTs,
-            // succes: sucessAssetsNFT
             success: successAssetsNFTs,
             address,
             failure: failureAssetsNFTs,

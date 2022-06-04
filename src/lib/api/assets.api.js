@@ -1,6 +1,6 @@
 import getAssestNFTs from "../services/getAssets.service"
 
-export default function assetsApiNFTs({
+export default async function assetsApiNFTs({
     init,
     success,
     failure,
@@ -11,7 +11,7 @@ export default function assetsApiNFTs({
 }) {
     init()
 
-    const response = getAssestNFTs({ limit, orderDirection, address, limit, includeOrders })
+    const response = await getAssestNFTs({ limit, orderDirection, address, limit, includeOrders })
     success({
         results: response.assets,
         next_pgae: response.next,
