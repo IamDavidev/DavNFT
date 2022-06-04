@@ -2,8 +2,8 @@ import { useReducer, useEffect } from 'react'
 import { INITIAL_STATE_ASSETS_NFTS } from '../../constants/assets.const';
 
 import { ACTIONS_ASSETS_NFTS } from '../actions/assets.actions';
+import assetsApiNFTs from '../api/assetsNFTs.api';
 
-import assetsApiNFTs from '../api/assets.api';
 import assetsNFTsReducer from '../reducers/assetsNTFs.reducer';
 
 

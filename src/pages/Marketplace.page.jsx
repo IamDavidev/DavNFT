@@ -2,6 +2,8 @@
 
 // imgs
 import layer from '../assets/images/layerBg.png';
+import nft404 from '../assets/images/nft404.png';
+import nft from '../assets/images/exampleNft.png';
 
 // icons
 import RowIcon from '../components/icons/Row.icon';
@@ -33,16 +35,44 @@ const Marketplace = () => {
 			</div>
 			<section className='relative z-10  box-border rounded-2xl flex flex-row justify-around flex-wrap gap-6 my-5'>
 				<div className='-rotate-12'>
-					<CardNft />
+					<CardNft
+						nft={nft}
+						creator='david lezama'
+						name={'nft 404'}
+						permalink='/collections'
+						token={'489'}
+						key={'489'}
+					/>
 				</div>
 				<div className='rotate-6'>
-					<CardNft />
+					<CardNft
+						nft={nft404}
+						creator='david lezama'
+						name={'nft 404'}
+						permalink='/collections'
+						token={'4230'}
+						key={'4230'}
+					/>
 				</div>
 				<div className='-rotate-12'>
-					<CardNft />
+					<CardNft
+						nft={nft}
+						creator='david lezama'
+						name={'nft next'}
+						permalink='/collections'
+						token={'42'}
+						key={'42'}
+					/>
 				</div>
 				<div className='rotate-12'>
-					<CardNft className='rotate-12' />
+					<CardNft
+						nft={nft404}
+						creator='david lezama'
+						name={'nft toast'}
+						permalink='/collections'
+						token={'30'}
+						key={'230'}
+					/>
 				</div>
 			</section>
 		</header>

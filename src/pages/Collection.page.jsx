@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import GridItemsCollections from '../layouts/GridItemsCollections.layout';
 
 // const options = { method: 'GET' };
