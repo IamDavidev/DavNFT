@@ -1,15 +1,17 @@
-// import React from 'react';
 import CardCollection from '../components/CardCollection.component.jsx';
-import useOpenSea from '../lib/hooks/useOpenSea';
+import useBundlesNFTs from '../lib/hooks/useBundles.js';
 
 const GridCollections = () => {
-	const { openSea } = useOpenSea();
-	// console.log(openSea);
+	const { bundles } = useBundlesNFTs();
+
 	return (
 		<>
 			<section className=' my-8 flex flex-wrap  justify-center items-center gap-6 min-h-screen'>
-				{openSea.loading && <p>Loading...</p>}
-				{openSea?.results?.collections.map(collection => {
+				<div>
+					<h2>Discover More Collections</h2>
+				</div>
+				{bundles.loading && <p>Loading...</p>}
+				{bundles?.results?.map(collection => {
 					if (!collection) return null;
 					return (
 						<CardCollection
@@ -23,8 +25,8 @@ const GridCollections = () => {
 						/>
 					);
 				})}
+				<span>{bundles.limit}/1200</span>
 			</section>
-			<span>{openSea.limit}/1200</span>
 		</>
 	);
 };
