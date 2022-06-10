@@ -7,6 +7,7 @@ async function OpenSeaApi({ limit, offset, init, success, error }) {
     init()
 
     const response = await getOpenSeaData({ limit, offset });
+
     if (!response.success) return await error(response.MessageErr)
 
     await success({

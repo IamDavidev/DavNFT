@@ -19,6 +19,9 @@ module.exports = {
     },
     fontFamily: {
       'manrope': ['Manrope', 'sans-serif'],
+    },
+    animation: {
+      "layer": "spin 70s linear infinite"
     }
   },
   plugins: [],

@@ -10,3 +10,12 @@ export const OPEN_SEA_INITIAL_STATE = {
     offset: 0
 
 }
+
+
+
+
+export const OPEN_SEA_PATHS_API = {
+    BUNDLES_URL: `${baseURL}/bundles`,
+    ASSESTS: `${baseURL}/assets`,
+    COLLECTIONS: `${baseURL}/collections`
+}
