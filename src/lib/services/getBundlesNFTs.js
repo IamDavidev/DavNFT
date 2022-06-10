@@ -2,7 +2,7 @@ import { API_URL_BASE } from "../../config/Api.instance";
 
 
 const xApiKey = import.meta.env.VITE_X_API_KEY;
-export async function getOpenSeaData(params) { // { limit, offset }
+export async function getBundlesNFTs(params) { // { limit, offset }
 
     try {
         const response = await API_URL_BASE.get('/bundles', {
@@ -21,6 +21,7 @@ export async function getOpenSeaData(params) { // { limit, offset }
                 success: true,
                 MessageErr: null,
             };
+
         return {
             data: null,
             status: response.status,
