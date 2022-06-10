@@ -13,13 +13,12 @@ export default async function assetsApiNFTs({
     init()
 
     const response = await getAssestNFTs({ limit, orderDirection, address, includeOrders })
-    console.log({ response })
 
     if (!response.success) return failure(response.MessageErr)
 
     success({
         results: response.data.assets.map(mapperAssetsNFTs),
-        next_page: response.data.next,
-        previous_page: response.data.previous,
+        nextPage: response.data.next,
+        previousPage: response.data.previous,
     })
 }

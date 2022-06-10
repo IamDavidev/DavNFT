@@ -6,6 +6,4 @@ export const API_URL_BASE = axios.create({
 })
 
 
-export const optionsFetch = {
-
-}
+export const X_API_KEY = import.meta.env.VITE_X_API_KEY

@@ -18,14 +18,14 @@ export default function assetsNFTsReducer(state = INITIAL_STATE_ASSETS_NFTS, act
 
         // se obtienen los assets de manera exitosa
         case ACTIONS_ASSETS_NFTS._SUCCESS_GET_ASSETS_: {
-            const { results, next_page, previous_page } = action.args;
+            const { results, nextPage, previousPage } = action.args;
             return {
                 ...state,
                 loading: false,
                 error: null,
                 results,
-                next_page,
-                previous_page,
+                nextPage,
+                previousPage,
             };
         }
 
@@ -51,19 +51,19 @@ export default function assetsNFTsReducer(state = INITIAL_STATE_ASSETS_NFTS, act
 
         // se setea la direccion de ordenamiento
         case ACTIONS_ASSETS_NFTS._SET_ORDER_DIRECTION_: {
-            const { order_direction } = action.args;
+            const { orderDirection } = action.args;
             return {
                 ...state,
-                order_direction,
+                orderDirection,
             };
         }
 
         // se setea si se deben incluir los orders
         case ACTIONS_ASSETS_NFTS._SET_INCLUDE_ORDERS_: {
-            const { include_orders } = action.args;
+            const { includeOrders } = action.args;
             return {
                 ...state,
-                include_orders,
+                includeOrders,
             };
         }
     }

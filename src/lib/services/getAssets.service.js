@@ -18,7 +18,6 @@ export default async function getAssestNFTs({
         };
 
     } catch (err) {
-        console.log(err);
         return {
             success: false,
             data: null,

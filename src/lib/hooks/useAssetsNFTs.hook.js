@@ -17,12 +17,12 @@ export default function useAssetsNFTs(address) {
         type: ACTIONS_ASSETS_NFTS._INITIAL_
     })
 
-    const successAssetsNFTs = ({ results, next_page, previous_page }) => setAssetsNFTs({
+    const successAssetsNFTs = ({ results, nextPage, previousPage }) => setAssetsNFTs({
         type: ACTIONS_ASSETS_NFTS._SUCCESS_GET_ASSETS_,
         args: {
             results,
-            next_page,
-            previous_page
+            nextPage,
+            previousPage
         }
     })
 
@@ -42,16 +42,16 @@ export default function useAssetsNFTs(address) {
         }
     })
 
-    const setOrderDirectionAssetsNFTs = order_direction => setAssetsNFTs({
+    const setOrderDirectionAssetsNFTs = orderDirection => setAssetsNFTs({
         type: ACTIONS_ASSETS_NFTS._SET_ORDER_DIRECTION_,
         args: {
-            order_direction
+            orderDirection
         }
     })
-    const setIncludeOrdersAssetsNfTs = include_orders => setAssetsNFTs({
+    const setIncludeOrdersAssetsNfTs = includeOrders => setAssetsNFTs({
         type: ACTIONS_ASSETS_NFTS._SET_INCLUDE_ORDERS_,
         args: {
-            include_orders
+            includeOrders
         }
     })
 
