@@ -1,15 +1,13 @@
-import { API_URL_BASE } from "../../config/Api.instance";
+import { API_URL_BASE, X_API_KEY } from "../../config/Api.instance";
 
 
-const xApiKey = import.meta.env.VITE_X_API_KEY;
 export async function getBundlesNFTs(params) { // { limit, offset }
-
     try {
         const response = await API_URL_BASE.get('/bundles', {
             params,// params: params = { limit, offset }
             headers: {
                 'Accept': 'application/json',
-                "X-API-key": xApiKey
+                "X-API-key": X_API_KEY
 
             }
         });

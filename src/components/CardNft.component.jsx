@@ -5,18 +5,18 @@ import VerificationIcon from './icons/verification.icon';
 const CardNft = ({ name, token, creator = 'aninimo', permalink, nft }) => {
 	return (
 		<>
-			<article className='p-4 border-solid border-light border rounded-2xl text-light w-72'>
+			<article className='p-4 border-solid border-glow_gree border-2 rounded-2xl text-light w-72'>
 				<header className='mb-3'>
-					<img src={nft} alt='nft example' />
+					<img src={nft} alt={name} className='rounded-2xl' />
 				</header>
 				<footer>
 					<div className='flex w-full justify-between items-center'>
 						<h2 className='text-xl font-bold'>{name}</h2>
 						<span className='text-glow_gree'>{token.substring(0, 4)}</span>
 					</div>
-					<span className='inline-block my-4'>
+					<span className='inline-block my-4 font-bold'>
 						{creator}
-						<VerificationIcon style='inline ml-4' />
+						<VerificationIcon style='inline ml-2' />
 					</span>
 					<div className='w-full flex justify-between items-center'>
 						<a

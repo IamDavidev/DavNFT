@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react'
-import bundlesApiNFTs from '../api/bundles.api'
+import bundlesApiNFTs from '../api/bundlesNFTs.api'
 import { ACTIONS_BUNDLES_NFTS } from '../actions/bundles.actions.js'
 
 import { bundlesNFTsReducer } from '../reducers/bundesNFTs.reducer'

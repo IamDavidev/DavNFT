@@ -15,7 +15,7 @@ export const collectionNFTsReducer = (
             };
         }
 
-        case ACTIONS_COLLECTION_NFTS._success_GET_COLLECTION_: {
+        case ACTIONS_COLLECTION_NFTS._SUCCESS_SEARCH_COLLECTION_: {
             const { collection } = action.args;
 
             return {
