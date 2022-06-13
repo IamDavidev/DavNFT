@@ -5,8 +5,6 @@ import RoutesPrivates from './routes/private.routes';
 import RoutesPublics from './routes/public.routes';
 
 function App() {
-	// const [logged, setLogged] = useToggle(false);
-	// console.log(logged);
 	const [logged, setLogged] = useState(false);
 	return (
 		<div className='p-4  bg-black min-h-screen w-ful text-light font-manrope overflow-hidden'>
