@@ -15,7 +15,8 @@ module.exports = {
         300: "#f1f4f7",
         500: "#7d8cac",
         900: "#485470",
-      }
+      },
+      nav: "#15161c",
     },
     fontFamily: {
       'manrope': ['Manrope', 'sans-serif'],

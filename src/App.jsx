@@ -1,21 +1,18 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Navbar from './layouts/Navbar.layout';
 
 import RoutesPrivates from './routes/private.routes';
 import RoutesPublics from './routes/public.routes';
 
 function App() {
-	const [logged, setLogged] = useState(false);
+	const isLogged = false;
 	return (
-		<div className='p-4  bg-black min-h-screen w-ful text-light font-manrope overflow-hidden'>
-			<button
-				onClick={() => setLogged(!logged)}
-				className='bg-glow_gree px-4 py-2 rounded-2xl text-dark font-semibold relative z-10'>
-				logged
-			</button>
+		<div className='p-2 bg-black min-h-screen w-ful text-light font-manrope overflow-hidden relative'>
+			<Navbar />
 			<Suspense fallback={<p>loading ...</p>}>
 				<BrowserRouter>
-					{logged ? <RoutesPrivates /> : <RoutesPublics />}
+					{isLogged ? <RoutesPrivates /> : <RoutesPublics />}
 				</BrowserRouter>
 			</Suspense>
 		</div>

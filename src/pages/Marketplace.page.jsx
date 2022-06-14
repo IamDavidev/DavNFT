@@ -6,7 +6,6 @@ import nft404 from '../assets/images/nft404.png';
 import nft from '../assets/images/exampleNft.png';
 
 // icons
-import RowIcon from '../components/icons/Row.icon';
 import CardNft from '../components/CardNft.component';
 
 const Marketplace = () => {
@@ -15,21 +14,20 @@ const Marketplace = () => {
 			<img
 				src={layer}
 				alt='layer'
-				className='absolute top-[-40rem] animate-layer '
+				className='absolute top-[-35rem] animate-layer '
 			/>
-			<div className='relative z-10 my-20 text-center flex justify-center itmes-center flex-col gap-8'>
+			<div className='relative z-10 mt-6 mb-12 text-center flex justify-center itmes-center flex-col gap-8'>
 				<h1 className='text-6xl w-[20ch] text-center mx-auto font-bold'>
 					<span className='text-dark font-bold'>Discover</span>, collect{' '}
 					<span className='text-dark font-bold'>and </span>sale{' '}
 					<span className='text-dark font-bold'>extraordinary NFTs</span>
 				</h1>
 				<nav>
-					<button className='font-bold border-glow_gree border-solid border bg-glow_gree text-dark p-2 rounded-2xl mx-4'>
+					<button className='font-bold bg-gradient-to-r px-4 from-gray-500 to-glow_gree text-black p-2 rounded-full mx-4'>
 						Get Started
 					</button>
-					<button className='p-2 rounded-2xl mx-4 text-light font-bold'>
-						learn More
-						<RowIcon color='#fff' style='inline mx-4' />
+					<button className='p-2  mx-4 text-light font-extrabold hover:text-glow_gree hover:duration-1000'>
+						Learn More
 					</button>
 				</nav>
 			</div>
@@ -37,7 +35,7 @@ const Marketplace = () => {
 				<div className='-rotate-12'>
 					<CardNft
 						nft={nft}
-						creator='david lezama'
+						creator='David lezama'
 						name={'nft 404'}
 						permalink='/collections'
 						token={'489'}
@@ -47,7 +45,7 @@ const Marketplace = () => {
 				<div className='rotate-6'>
 					<CardNft
 						nft={nft404}
-						creator='david lezama'
+						creator='David lezama'
 						name={'nft 404'}
 						permalink='/collections'
 						token={'4230'}
@@ -57,7 +55,7 @@ const Marketplace = () => {
 				<div className='-rotate-12'>
 					<CardNft
 						nft={nft}
-						creator='david lezama'
+						creator='David lezama'
 						name={'nft next'}
 						permalink='/collections'
 						token={'42'}
@@ -67,7 +65,7 @@ const Marketplace = () => {
 				<div className='rotate-12'>
 					<CardNft
 						nft={nft404}
-						creator='david lezama'
+						creator='David lezama'
 						name={'nft toast'}
 						permalink='/collections'
 						token={'30'}
