@@ -5,7 +5,7 @@ import { ACTIONS_COLLECTION_NFTS } from '../actions/collections.actions';
 import collectionApi from '../api/collectionNFTs.api';
 import { collectionNFTsReducer } from '../reducers/collectionNFTs.reducer';
 
-export function useCollectionNFts(slug) {
+function useCollectionNFts(slug) {
     const [collection, setCollection] = useReducer(
         collectionNFTsReducer,
         INITIAL_STATE_COLLECTION_ASSETS_NFTS
@@ -47,3 +47,5 @@ export function useCollectionNFts(slug) {
         collection,
     };
 }
+
+export default useCollectionNFts;

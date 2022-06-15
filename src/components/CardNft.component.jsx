@@ -5,7 +5,7 @@ import VerificationIcon from './icons/verification.icon';
 const CardNft = ({ name, token, creator = 'aninimo', permalink, nft }) => {
 	return (
 		<>
-			<article className='p-4 border-solid border-purple border-2 rounded-2xl text-light w-72'>
+			<article className='p-4 border-solid border-purple border-2 rounded-2xl text-light w-72 bg-black'>
 				<header className='mb-3'>
 					<img src={nft} alt={name} className='rounded-2xl' />
 				</header>

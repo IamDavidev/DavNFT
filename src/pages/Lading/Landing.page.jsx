@@ -1,18 +1,16 @@
-// import React from 'react';
+import Layer from '../../assets/images/layerBg.png';
+import NFT404 from '../../assets/images/nft404.png';
+import NFTCat from '../../assets/images/cat.png';
+import NFTPalom from '../../assets/images/Palom.png';
+import NFTKo from '../../assets/images/exampleNft.png';
 
-// imgs
-import layer from '../assets/images/layerBg.png';
-import nft404 from '../assets/images/nft404.png';
-import nft from '../assets/images/exampleNft.png';
+import CardNft from '../../components/CardNft.component';
 
-// icons
-import CardNft from '../components/CardNft.component';
-
-const Marketplace = () => {
+const LandingPage = () => {
 	return (
 		<header className='text-light relative '>
 			<img
-				src={layer}
+				src={Layer}
 				alt='layer'
 				className='absolute top-[-35rem] animate-layer '
 			/>
@@ -34,9 +32,9 @@ const Marketplace = () => {
 			<section className='relative z-10  box-border rounded-2xl flex flex-row justify-around flex-wrap gap-6 my-5'>
 				<div className='-rotate-12'>
 					<CardNft
-						nft={nft}
+						nft={NFT404}
 						creator='David lezama'
-						name={'nft 404'}
+						name={'NFT 404 $'}
 						permalink='/collections'
 						token={'489'}
 						key={'489'}
@@ -44,9 +42,9 @@ const Marketplace = () => {
 				</div>
 				<div className='rotate-6'>
 					<CardNft
-						nft={nft404}
+						nft={NFTCat}
 						creator='David lezama'
-						name={'nft 404'}
+						name={'NFT Cat Dimond'}
 						permalink='/collections'
 						token={'4230'}
 						key={'4230'}
@@ -54,9 +52,9 @@ const Marketplace = () => {
 				</div>
 				<div className='-rotate-12'>
 					<CardNft
-						nft={nft}
+						nft={NFTKo}
 						creator='David lezama'
-						name={'nft next'}
+						name={'NFT KOKO'}
 						permalink='/collections'
 						token={'42'}
 						key={'42'}
@@ -64,9 +62,9 @@ const Marketplace = () => {
 				</div>
 				<div className='rotate-12'>
 					<CardNft
-						nft={nft404}
+						nft={NFTPalom}
 						creator='David lezama'
-						name={'nft toast'}
+						name={'NFT Palomon'}
 						permalink='/collections'
 						token={'30'}
 						key={'230'}
@@ -77,4 +75,4 @@ const Marketplace = () => {
 	);
 };
 
-export default Marketplace;
+export default LandingPage;

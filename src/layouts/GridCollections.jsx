@@ -1,8 +1,12 @@
 import CardCollection from '../components/CardCollection.component';
-import useBundlesNFTs from '../lib/hooks/useBundlesNFTs';
+import { useBundlesNFTs } from '../lib/hooks';
 
 const GridCollections = () => {
 	const { bundles } = useBundlesNFTs();
+	console.log(
+		'🚀 ~ file: GridCollections.jsx ~ line 6 ~ GridCollections ~ bundles',
+		bundles
+	);
 
 	return (
 		<>
