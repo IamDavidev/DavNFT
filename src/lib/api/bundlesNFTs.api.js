@@ -1,5 +1,5 @@
 import { mapperDataOpenSea } from "../mappers/openSeaData.mapper";
-import { getBundlesNFTs } from "../services/getBundlesNFTs";
+import { getBundlesNFTs } from "../services/getBundlesNFTs.serivce";
 
 
 async function bundlesApiNFTs({ limit, offset, init, success, error }) {

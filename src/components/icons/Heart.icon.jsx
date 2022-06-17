@@ -1,4 +1,4 @@
-function HeartIcon({ color, width = '30', height = '28', style }) {
+function HeartIcon({ color = '#57e39f', width = '21', height = '28', style }) {
 	return (
 		<>
 			<svg

@@ -3,5 +3,19 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
+  plugins: [
+    react(),
+  ],
+  resolve: {
+    alias: {
+      process: 'process/browser',
+      stream: "stream-browserify",
+      zlib: "browserify-zlib",
+      util: "util"
+    }
+  },
+  optimizeDeps: {
+    exclude: ['web3', "web3-react"]
+  }
 })
+// export default defineConfig({ plugins: [vue(), polyfillNode()], optimizeDeps: { exclude: ['dragula'] } })

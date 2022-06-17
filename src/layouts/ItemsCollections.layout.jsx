@@ -17,11 +17,6 @@ const GridItemsCollections = ({ address }) => {
 					/>
 				);
 			})}
-			{assetsNFTs?.results?.length === 0 && (
-				<div className='text-center'>
-					<h1 className='text-2xl font-bold'>No hay nft</h1>
-				</div>
-			)}
 		</div>
 	);
 };

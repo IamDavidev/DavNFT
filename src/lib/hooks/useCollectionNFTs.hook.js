@@ -1,27 +1,11 @@
 import { useEffect, useReducer } from 'react';
 
-import { getCollectionNFTs } from '../services/getCollectionsNFTs.service';
 import { INITIAL_STATE_COLLECTION_ASSETS_NFTS } from '../../constants/collection.const';
 import { ACTIONS_COLLECTION_NFTS } from '../actions/collections.actions';
+import collectionApi from '../api/collectionNFTs.api';
 import { collectionNFTsReducer } from '../reducers/collectionNFTs.reducer';
 
-
-async function collectionApi({ init, slug, success, failure }) {
-
-    init()
-
-    const response = await getCollectionNFTs(slug)
-
-    if (!response.success) failure({
-        error: response.error
-    })
-
-    success({
-        collection: response.collection.collection
-    })
-}
-
-export function useCollectionNFts(slug) {
+function useCollectionNFts(slug) {
     const [collection, setCollection] = useReducer(
         collectionNFTsReducer,
         INITIAL_STATE_COLLECTION_ASSETS_NFTS
@@ -34,7 +18,7 @@ export function useCollectionNFts(slug) {
 
     const successGetCollection = ({ collection }) =>
         setCollection({
-            type: ACTIONS_COLLECTION_NFTS._success_GET_COLLECTION_,
+            type: ACTIONS_COLLECTION_NFTS._SUCCESS_SEARCH_COLLECTION_,
             args: {
                 collection,
             },
@@ -63,3 +47,5 @@ export function useCollectionNFts(slug) {
         collection,
     };
 }
+
+export default useCollectionNFts;

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
-import GridItemsCollections from '../layouts/GridItemsCollections.layout';
-import StatiticsCollection from '../layouts/StatiticsCollection.layout';
+import GridItemsCollections from '../../layouts/ItemsCollections.layout';
+import StatiticsCollection from '../../layouts/StatiticsCollection.layout';
 
 const Collection = () => {
 	const { slug, address } = useParams();

@@ -1,13 +1,18 @@
+import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Marketplace from '../pages/Marketplace.page';
+// import { SignIn } from '../pages';
+import LandingPage from '../pages/Lading/Landing.page';
+
+const SignIn = lazy(() => import('../pages/Login/SignIn.page'));
+const LogIn = lazy(() => import('../pages/Login/LogIn.page'));
 
 const RoutesPublics = () => {
 	return (
 		<Routes>
-			<Route path='/' element={<Marketplace />} />
-			<Route path='/login' element={<p>login</p>} />
-			<Route path='/register' element={<p>register</p>} />
-			<Route path='*' element={<Navigate to='/' replace />} />
+			<Route path='/' element={<LandingPage />} />
+			<Route path='/marketplace/sign-in' element={<SignIn />} />
+			<Route path='/marketplace/log-in' element={<LogIn />} />
+			<Route path='*' element={<Navigate to='/marketplace/log-in' replace />} />
 		</Routes>
 	);
 };
