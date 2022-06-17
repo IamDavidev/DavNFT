@@ -21,15 +21,16 @@ const SignInPage = () => {
 						isValid={form.username.isValid}
 						key={'username'}
 					/>
-					{/* <InputForm
+					<InputForm
 						id='Email'
 						label='Email'
-						message={form.email.message}password
+						message={form.email.message}
+						password
 						placeholder={'enter your email '}
 						type={'email'}
 						isValid={form.email.isValid}
 						key={'email'}
-					/> */}
+					/>
 					<InputForm
 						id='password'
 						label='Password'

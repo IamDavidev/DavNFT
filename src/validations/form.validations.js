@@ -96,3 +96,42 @@ export function validationFormEmail(setEmail, email) {
     }
   }))
 }
+
+
+
+export function validationFormUsername(setUserName, username) {
+
+  const value = username.value
+
+  const setErrorUserName = msg => setUserName(prev => ({
+    ...prev,
+    username: {
+      message: msg,
+      isValid: false
+    }
+  }))
+
+
+  if (value === '') return setErrorUserName('Username is required')
+
+  if (value.length < 8) return setErrorUserName('Username must be at least 8 characters')
+
+  if (value.length > 64) return setErrorUserName('Username must be less than 64 characters')
+
+  if (value.search(/[a-z]/) === -1) return setErrorUserName('Username must contain at least one lowercase letter')
+
+  //  search for spaces with regex
+  if (value.search(/\s/) !== -1) return setErrorUserName('Username must not contain spaces')
+
+  return setUserName(prev => ({
+    ...prev,
+    username: {
+      message: "success",
+      isValid: true
+    }
+  }))
+
+
+}
+
+

@@ -1,8 +1,16 @@
 
 import { useState } from 'react'
 import { INITIAL_STATE_FORM } from '../../constants';
-import { validationFormEmail, validationFormPassword, validationFormPasswordConfirmation } from '../../validations';
+import { validationFormEmail, validationFormPassword, validationFormPasswordConfirmation, validationFormUsername } from '../../validations';
 
+// esvacio true 
+const isEmpty = field => {
+
+  if (!field) return true;
+  if (field.value === '') return true;
+
+  return false
+}
 
 
 export default function useForm() {
@@ -10,15 +18,18 @@ export default function useForm() {
 
   const isValidationsFiels = e => {
     e.preventDefault();
-    console.log(e);
-    const { password, email, confirmPassword } = e.target;
+    // console.log(e);
+    const { password, email, confirmPassword, username } = e.target;
 
-    password && password.value !== '' && validationFormPassword(setForm, password);
+    !isEmpty(password) && validationFormPassword(setForm, password);
 
-    email && email.value !== '' && validationFormEmail(setForm, email);
+    !isEmpty(email) && validationFormEmail(setForm, email);
 
-    confirmPassword &&
-      confirmPassword.value !== '' && validationFormPasswordConfirmation(setForm, password, confirmPassword);
+    !isEmpty(confirmPassword) && validationFormPasswordConfirmation(setForm, password, confirmPassword);
+
+    !isEmpty() && validationFormUsername(setForm, username)
+
+
   };
 
   return {
