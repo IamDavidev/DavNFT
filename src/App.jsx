@@ -9,7 +9,7 @@ import RoutesPublics from './routes/public.routes';
 function App() {
 	const [isLogged, setIsLogged] = useToogle(false);
 	return (
-		<div className='p-2 bg-black min-h-screen w-ful text-light font-manrope overflow-hidden relative'>
+		<div className='p-2 bg-black min-h-screen w-ful text-light font-manrope overflow-hidden relative pb-8'>
 			<Suspense fallback={<p>loading ...</p>}>
 				<BrowserRouter>
 					<Navbar />

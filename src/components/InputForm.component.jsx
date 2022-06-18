@@ -8,16 +8,14 @@ const InputForm = ({
 	attributes,
 }) => {
 	return (
-		<div className='w-full '>
-			<label className='block text-gray-700 text-sm font-bold mb-2 ml-1'>
-				{label}
-			</label>
+		<div className='w-full my-1'>
+			<label className='block text-sm font-bold mb-1'>{label}</label>
 			<input
 				type={type}
 				placeholder={placeholder}
 				id={id}
 				autoComplete='on'
-				className={`font-bold text-sm text-purple rounded bg-black  focus:outline-none   py-1 border-2 border-solid border-purple ${
+				className={`font-bold text-sm bg-nav text-purple rounded-2xl  focus:shadow-sm shadow-purple py-4 border-solid border border-black  ${
 					!isValid && 'border-red'
 				}  w-full p-1 placeholder:opacity-60 placeholder:text-xs placeholder:font-bold file:border-none file:bg-gray-900 file:mx-2 file:rounded-sm file:text-black `}
 				{...attributes}
