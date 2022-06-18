@@ -53,6 +53,7 @@ export function validationFormPasswordConfirmation(setConfirmPassword, password,
     }
   }))
 
+  if (!password) return setErrorConfirmPassword('Password is required')
 
   if (value !== valuePassword) return setErrorConfirmPassword("password doesn't match")
 
@@ -88,6 +89,7 @@ export function validationFormEmail(setEmail, email) {
 
   if (value.length > 64) return setErrorEmail('Email must be less than 64 characters')
 
+  console.log("validationEmail", value)
   return setEmail(prev => ({
     ...prev,
     email: {
@@ -135,3 +137,30 @@ export function validationFormUsername(setUserName, username) {
 }
 
 
+export function validationFormName(setName, name) {
+
+  const value = name.value;
+  console.log("name", value)
+  console.log("namevalue", name.value)
+
+  const setErrorName = msg => setName(prev => ({
+    ...prev,
+    name: {
+      message: msg,
+      isValid: false
+    }
+  }))
+
+  console.log("value is empty", value === '')
+  if (value === '') return setErrorName('Name is required')
+
+
+  return setName(prev => ({
+    ...prev,
+    name: {
+      message: "success",
+      isValid: true
+    }
+  }))
+
+}

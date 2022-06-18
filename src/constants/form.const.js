@@ -24,4 +24,8 @@ export const INITIAL_STATE_FORM = {
     message: null,
     isValid: true,
   },
+  name: {
+    message: null,
+    isValid: true,
+  }
 };

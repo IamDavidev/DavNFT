@@ -16,9 +16,9 @@ const LandingPage = () => {
 			/>
 			<div className='relative z-10 mt-6 mb-12 text-center flex justify-center itmes-center flex-col gap-8'>
 				<h1 className='text-6xl w-[20ch] text-center mx-auto font-bold'>
-					<span className='text-dark font-bold'>Discover</span>, collect{' '}
-					<span className='text-dark font-bold'>and </span>sale{' '}
-					<span className='text-dark font-bold'>extraordinary NFTs</span>
+					<span className='text-navy font-bold'>Discover, </span>collect{' '}
+					<span className='text-navy font-bold'>and </span>sale{' '}
+					<span className='text-navy font-bold'>extraordinary NFTs</span>
 				</h1>
 				<nav>
 					<button className='font-bold bg-gradient-to-r px-4 from-gray-500 to-glow_gree text-black p-2 rounded-full mx-4'>
