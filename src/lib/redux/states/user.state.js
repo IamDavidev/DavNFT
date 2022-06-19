@@ -6,15 +6,17 @@ export const userSlice = createSlice({
     name: "user",
     initialState: INITIAL_EMPTY_USER_STATE,
     reducers: {
-        createUser: (_, action) => action.payload,
-        updaateUser: (state, action) => {
+        // createUser: (_, action) => action.payload,
+        updateUser: (state, action) => {
+            console.log(action.payload)
             return {
                 ...state,
-                ...action.agrs
+                ...action.payload
             }
         },
         updatedAddress: (state, action) => {
             // const { address } = action.payload
+
             return {
                 ...state,
                 ...action.payload
@@ -25,6 +27,6 @@ export const userSlice = createSlice({
 })
 
 
-export const { createUser, resetUser, updaateUser, updatedAddress } = userSlice.actions
+export const { resetUser, updateUser, updatedAddress } = userSlice.actions
 
-export default userSlice.reducer
+export const userReducerSlice = userSlice.reducer

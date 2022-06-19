@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import GridItemsCollections from '../../layouts/ItemsCollections.layout';
 import StatiticsCollection from '../../layouts/StatiticsCollection.layout';
 
-const Collection = () => {
+// dashboard/collection/:id
+const Dashboard = () => {
 	const { slug, address } = useParams();
 	return (
 		<div>
@@ -15,4 +16,4 @@ const Collection = () => {
 	);
 };
 
-export default Collection;
+export default Dashboard;

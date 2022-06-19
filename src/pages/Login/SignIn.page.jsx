@@ -1,26 +1,19 @@
 import { Link } from 'react-router-dom';
 
-import { useForm, useLogin, useUser } from '../../lib/hooks';
+import { useForm, useLogin } from '../../lib/hooks';
 
 import InputForm from '../../components/InputForm.component';
 
 import koala from '../../assets/Koala.png';
 import metamask from '../../assets/metamask-icon.svg';
 import LayoutFlex from '../../containers/layoutFlex.container';
-import { useEffect } from 'react';
 // import useUser from '../../lib/hooks/useUser.hook';
 
 const SignInPage = () => {
-	const { form, isValidationsFiels } = useForm();
+	const { form, ValidationsFiels } = useForm();
 	const { connectWalletMetamask } = useLogin();
-	const { user, signInUser } = useUser();
-	console.log('🚀 ~ file: SignIn.page.jsx ~ line 16 ~ SignInPage ~ user', user);
 
-	useEffect(() => {
-		signInUser({
-			username: 'test',
-		});
-	}, []);
+	console.log(form);
 
 	return (
 		<div className='flex  justify-around items-center my-10'>
@@ -41,7 +34,7 @@ const SignInPage = () => {
 				<div className='my-3'>
 					<form
 						className='flex flex-col justify-start items-start my-6'
-						onSubmit={e => isValidationsFiels(e)}>
+						onSubmit={e => ValidationsFiels(e)}>
 						<LayoutFlex>
 							<InputForm
 								id='name'
