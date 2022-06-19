@@ -13,8 +13,6 @@ const SignInPage = () => {
 	const { form, ValidationsFiels } = useForm();
 	const { connectWalletMetamask } = useLogin();
 
-	console.log(form);
-
 	return (
 		<div className='flex  justify-around items-center my-10'>
 			<div className='flex flex-col justify-start w-1/3'>
