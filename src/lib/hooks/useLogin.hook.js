@@ -1,15 +1,10 @@
 import { useWeb3React } from '@web3-react/core'
 import { connector } from '../../config/web3.config'
+import useUser from './useUser.hook'
 
 export default function useLogin() {
-    const { activate, deactivate, chainId, account, error } = useWeb3React()
-    console.log("🚀 ~ file: useLogin.hook.js ~ line 6 ~ useLogin ~ error", error)
-    console.log("🚀 ~ file: useLogin.hook.js ~ line 6 ~ useLogin ~ account", account)
-    console.log("🚀 ~ file: useLogin.hook.js ~ line 6 ~ useLogin ~ chainId", chainId)
-    console.log("🚀 ~ file: useLogin.hook.js ~ line 6 ~ useLogin ~ deactivate", deactivate)
-    console.log("🚀 ~ file: useLogin.hook.js ~ line 6 ~ useLogin ~ activate", activate)
-
-
+    const { activate, deactivate, account, error } = useWeb3React()
+    const { user, SignIn } = useUser()
 
     const connectWalletMetamask = () => {
         activate(connector)
@@ -19,11 +14,14 @@ export default function useLogin() {
         deactivate()
     }
 
+    console.log(user)
+
     return {
         connectWalletMetamask,
         disconnectWallet,
-        chainId,
+        SignIn,
         error,
-        account
+        account,
+        user
     }
 }

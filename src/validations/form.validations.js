@@ -1,5 +1,5 @@
 
-export function validationFormPassword(setPassword, password) {
+export function isValidPassword(setPassword, password) {
 
 
   const value = password.value
@@ -27,20 +27,18 @@ export function validationFormPassword(setPassword, password) {
 
   if (value.search(/[0-9]/) === -1) return setErrorPassword('Password must contain at least one number')
 
-
-
-  console.log("validationPassword", value)
-  return setPassword(prev => ({
+  setPassword(prev => ({
     ...prev,
     password: {
       message: "success",
-      isValid: true
+      isValid: true,
+      value
     }
   }))
+  return true
 }
 
-
-export function validationFormPasswordConfirmation(setConfirmPassword, password, confirmPassword) {
+export function isValidPasswordConfirmation(setConfirmPassword, password, confirmPassword) {
 
   const value = confirmPassword.value
   const valuePassword = password.value
@@ -49,27 +47,29 @@ export function validationFormPasswordConfirmation(setConfirmPassword, password,
     ...prev,
     confirmPassword: {
       message: msg,
-      isValid: false
+      isValid: false,
     }
   }))
 
-  if (!password) return setErrorConfirmPassword('Password is required')
+  // if (!password) return setErrorConfirmPassword('Password is required')
+  if (value === '') return setErrorConfirmPassword('Password confirmation is required')
 
   if (value !== valuePassword) return setErrorConfirmPassword("password doesn't match")
 
 
-  return setConfirmPassword(prev => ({
+  setConfirmPassword(prev => ({
     ...prev,
     confirmPassword: {
       message: "success",
-      isValid: true
+      isValid: true,
+      value
     }
   }))
 
+  return true
 }
 
-
-export function validationFormEmail(setEmail, email) {
+export function isValidEmail(setEmail, email) {
 
   const value = email.value
 
@@ -78,7 +78,7 @@ export function validationFormEmail(setEmail, email) {
       ...prev,
       email: {
         message: msg,
-        isValid: false
+        isValid: false,
       }
     }))
   }
@@ -89,19 +89,18 @@ export function validationFormEmail(setEmail, email) {
 
   if (value.length > 64) return setErrorEmail('Email must be less than 64 characters')
 
-  console.log("validationEmail", value)
-  return setEmail(prev => ({
+  setEmail(prev => ({
     ...prev,
     email: {
       message: "success",
-      isValid: true
+      isValid: true,
+      value
     }
   }))
+  return true
 }
 
-
-
-export function validationFormUsername(setUserName, username) {
+export function isValidUsername(setUserName, username) {
 
   const value = username.value
 
@@ -109,7 +108,7 @@ export function validationFormUsername(setUserName, username) {
     ...prev,
     username: {
       message: msg,
-      isValid: false
+      isValid: false,
     }
   }))
 
@@ -125,23 +124,22 @@ export function validationFormUsername(setUserName, username) {
   //  search for spaces with regex
   if (value.search(/\s/) !== -1) return setErrorUserName('Username must not contain spaces')
 
-  return setUserName(prev => ({
+
+  setUserName(prev => ({
     ...prev,
     username: {
       message: "success",
-      isValid: true
+      isValid: true,
+      value
     }
   }))
-
+  return true
 
 }
 
-
-export function validationFormName(setName, name) {
+export function isValidName(setName, name) {
 
   const value = name.value;
-  console.log("name", value)
-  console.log("namevalue", name.value)
 
   const setErrorName = msg => setName(prev => ({
     ...prev,
@@ -151,16 +149,33 @@ export function validationFormName(setName, name) {
     }
   }))
 
-  console.log("value is empty", value === '')
+
   if (value === '') return setErrorName('Name is required')
 
 
-  return setName(prev => ({
+  setName(prev => ({
     ...prev,
     name: {
       message: "success",
-      isValid: true
+      isValid: true,
+      value
     }
   }))
+
+  return true
+}
+
+
+export function isValidForm(setFormValid, form) {
+
+  const fields = [form.confirmPassword.isValid, form.email.isValid, form.name.isValid, form.password.isValid, form.username.isValid]
+  console.log("🚀 ~ file: form.validations.js ~ line 167 ~ isValidForm ~ fields", fields)
+
+  console.log("fiels", !fields.includes(false))
+  if (fields.includes(false)) return setFormValid(false)
+
+
+  setFormValid(true)
+
 
 }
