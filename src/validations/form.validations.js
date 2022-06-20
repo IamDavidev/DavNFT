@@ -169,9 +169,7 @@ export function isValidName(setName, name) {
 export function isValidForm(setFormValid, form) {
 
   const fields = [form.confirmPassword.isValid, form.email.isValid, form.name.isValid, form.password.isValid, form.username.isValid]
-  console.log("🚀 ~ file: form.validations.js ~ line 167 ~ isValidForm ~ fields", fields)
 
-  console.log("fiels", !fields.includes(false))
   if (fields.includes(false)) return setFormValid(false)
 
 

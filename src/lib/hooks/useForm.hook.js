@@ -7,9 +7,8 @@ import useLogin from './useLogin.hook';
 export function updateUser(form, isValidForm, signIn) {
   if (!isValidForm) return
   const { username, name, password, email } = form
-  // console.log("<<form", form)
-  console.log("user", username.value)
   return signIn({ username: username.value, name: name.value, password: password.value, email: email.value })
+
 }
 
 
@@ -19,7 +18,7 @@ export default function useForm() {
   const [form, setForm] = useState(INITIAL_STATE_FORM);
   const [formValid, setFormValid] = useState(false);
   const { SignIn } = useLogin()
-  console.log("🚀 ~ file: useForm.hook.js ~ line 11 ~ useForm ~ formValid", formValid)
+
 
   const ValidationsFiels = e => {
     e.preventDefault();
@@ -40,7 +39,6 @@ export default function useForm() {
 
   useEffect(() => {
     isValidForm(setFormValid, form)
-    // updateUser(form, formValid, SignIn)
     if (formValid) SignIn({
       username: form.username.value,
       name: form.name.value,
@@ -49,6 +47,7 @@ export default function useForm() {
       banner: "",
       profilePicture: "",
       verified: false,
+      isLoggedIn: true,
     })
     console.log("Exuced useForm useEffect")
   }, [form, formValid])
