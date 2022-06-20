@@ -1,4 +1,5 @@
-import { API_URL_BASE, X_API_KEY } from "../../config/Api.instance"
+
+import { API_URL_BASE, X_API_KEY } from "../../config"
 
 export async function getCollectionNFTs({
     slug,

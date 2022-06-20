@@ -2,10 +2,13 @@ import ReactMarkdown from 'react-markdown';
 import HeartIcon from '../components/icons/Heart.icon';
 import ShareIcon from '../components/icons/Share.icon';
 import WebsiteIcon from '../components/icons/website.icon';
-import { useCollectionNFts } from '../lib/hooks/useCollectionNFTs.hook';
+import { useCollectionNFTs } from '../lib/hooks';
+// import { useCollectionNFts } from '../lib/hooks/useCollectionNFTs.hook';
 
 const Statiticsresult = ({ slug }) => {
-	const { collection } = useCollectionNFts(slug);
+	// const { collection } = useCollectionNFts(slug);
+
+	const { collection } = useCollectionNFTs(slug);
 	const result = collection?.results;
 	console.log(result);
 

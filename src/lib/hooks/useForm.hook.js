@@ -47,6 +47,7 @@ export default function useForm() {
       banner: "",
       profilePicture: "",
       verified: false,
+      isLoggedIn: true,
     })
     console.log("Exuced useForm useEffect")
   }, [form, formValid])

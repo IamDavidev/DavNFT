@@ -17,6 +17,7 @@ export default function useAssetsNFTs(address) {
         type: ACTIONS_ASSETS_NFTS._INITIAL_
     })
 
+    // actions search and get assets nfts
     const successAssetsNFTs = ({ results, nextPage, previousPage }) => setAssetsNFTs({
         type: ACTIONS_ASSETS_NFTS._SUCCESS_GET_ASSETS_,
         args: {
@@ -32,7 +33,6 @@ export default function useAssetsNFTs(address) {
             error
         }
     })
-
 
     // actions to change params of search assets nfts
     const setLimitPageAssetsNFTs = limit => setAssetsNFTs({

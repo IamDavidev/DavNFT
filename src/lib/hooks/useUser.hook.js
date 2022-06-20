@@ -6,7 +6,7 @@ export default function useUser() {
     const dispatch = useDispatch()
 
 
-    const SignIn = ({ username, email, name, profilePicture, banner, id, address, verified }) => [
+    const SignIn = ({ username, email, name, profilePicture, banner, id, address, verified, isLoggedIn }) => [
         dispatch(updateUser({
             user: {
                 username,
@@ -18,7 +18,8 @@ export default function useUser() {
             },
             id,
             address,
-            verified
+            verified,
+            isLoggedIn,
         }))
     ]
 

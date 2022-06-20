@@ -9,6 +9,7 @@ export const INITIAL_EMPTY_USER_STATE = {
     },
     address: null, // whit web 3 address
     verified: false,
+    isLoggedIn: false,
 }
 
 
