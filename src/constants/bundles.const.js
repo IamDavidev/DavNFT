@@ -1,4 +1,4 @@
-export const baseURL = 'https://api.opensea.io/api/v1'
+// export const baseURL = 'https://api.opensea.io/api/v1'
 
 export const BUNDLES_NFTS_INITIAL_STATE = {
     results: [],
@@ -12,8 +12,8 @@ export const BUNDLES_NFTS_INITIAL_STATE = {
 
 
 
-export const OPEN_SEA_PATHS_API = {
-    BUNDLES_URL: `${baseURL}/bundles`,
-    ASSESTS: `${baseURL}/assets`,
-    COLLECTIONS: `${baseURL}/collections`
-}
+// export const OPEN_SEA_PATHS_API = {
+//     BUNDLES_URL: `${baseURL}/bundles`,
+//     ASSESTS: `${baseURL}/assets`,
+//     COLLECTIONS: `${baseURL}/collections`
+// }

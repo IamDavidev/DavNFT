@@ -6,15 +6,14 @@ export default function useUser() {
     const dispatch = useDispatch()
 
 
-    const SignIn = ({ username, email, name, profilePicture, banner, id, address, verified, isLoggedIn }) => [
+    const setUserGlobalState = ({ userName, email, name, profilePicture, banner, id, address, verified, isLoggedIn }) => [
         dispatch(updateUser({
             user: {
-                username,
+                userName,
                 email,
                 name,
                 profilePicture,
                 banner,
-
             },
             id,
             address,
@@ -36,7 +35,7 @@ export default function useUser() {
     return {
         user,
         SignOut,
-        SignIn,
-        SignWithAddress
+        SignWithAddress,
+        setUserGlobalState,
     }
 }

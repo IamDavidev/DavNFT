@@ -1,55 +1,80 @@
 
 import { useEffect, useState } from 'react'
 import { INITIAL_STATE_FORM } from '../../constants';
-import { isValidEmail, isValidForm, isValidName, isValidPassword, isValidPasswordConfirmation, isValidUsername } from '../../validations';
-import useLogin from './useLogin.hook';
+import { checkingIsValidEmail, checkingIsValidName, checkingIsValidPassword, checkingIsValidPasswordConfirmation, checkingIsValidUsername } from '../../validations';
+import useAuth from './useAuth.hook';
 
-export function updateUser(form, isValidForm, signIn) {
-  if (!isValidForm) return
-  const { username, name, password, email } = form
-  return signIn({ username: username.value, name: name.value, password: password.value, email: email.value })
 
+// export function updateUser(form, isValidForm, signIn) {
+//   if (!isValidForm) return
+//   console.log("🚀 ~ file: useForm.hook.js ~ line 10 ~ updateUser ~ isValidForm", isValidForm)
+//   const { username, name, password, email } = form
+//   return signIn({ username: username.value, name: name.value, password: password.value, email: email.value })
+
+// }
+
+export function isValidForm({
+  setForm,
+  setFormValid,
+  name,
+  password,
+  confirmPassword,
+  username,
+  email,
+}) {
+
+  const isValidName = checkingIsValidName(setForm, name)
+  const isValidPassword = checkingIsValidPassword(setForm, password)
+  const isValidConfirmPassword = checkingIsValidPasswordConfirmation(setForm, password, confirmPassword)
+  const isValidUserName = checkingIsValidUsername(setForm, username)
+  const isValidEmail = checkingIsValidEmail(setForm, email)
+
+
+
+  const validForm = [isValidName, isValidPassword, isValidConfirmPassword, isValidUserName, isValidEmail]
+
+  console.log("🚀 ~ file: useForm.hook.js ~ line 35 ~ validForm", validForm)
+
+  if (validForm.includes(false)) return setFormValid(false)
+
+  setFormValid(true)
 }
 
 
-
-
 export default function useForm() {
+
   const [form, setForm] = useState(INITIAL_STATE_FORM);
   const [formValid, setFormValid] = useState(false);
-  const { SignIn } = useLogin()
-
+  console.log("🚀 ~ file: useForm.hook.js ~ line 47 ~ useForm ~ formValid", formValid)
+  const { signUpWithGmailandPassword } = useAuth()
 
   const ValidationsFiels = e => {
     e.preventDefault();
-
     const { password, email, confirmPassword, username, name } = e.target;
-
-    !!name && isValidName(setForm, name)
-
-    !!username && isValidUsername(setForm, username)
-
-    !!password && isValidPassword(setForm, password);
-
-    !!email && isValidEmail(setForm, email);
-
-    !!confirmPassword && isValidPasswordConfirmation(setForm, password, confirmPassword);
-
+    isValidForm({
+      setForm,
+      name,
+      password,
+      confirmPassword,
+      username,
+      email,
+      setFormValid
+    })
   };
 
   useEffect(() => {
-    isValidForm(setFormValid, form)
-    if (formValid) SignIn({
-      username: form.username.value,
-      name: form.name.value,
-      password: form.password.value,
+    formValid && signUpWithGmailandPassword({
       email: form.email.value,
-      banner: "",
-      profilePicture: "",
-      verified: false,
+      password: form.password.value,
+      userName: form.username.value,
+      name: form.name.value,
+      address: form.name.value,
+      banner: form.banner.value,
+      profilePicture: form.profilePicture.value,
       isLoggedIn: true,
+      verified: false,
     })
-    console.log("Exuced useForm useEffect")
+    console.log("userEffect useForm")
   }, [form, formValid])
 
 

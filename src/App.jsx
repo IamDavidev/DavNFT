@@ -8,9 +8,9 @@ import RoutesPrivates from './routes/private.routes';
 import RoutesPublics from './routes/public.routes';
 
 function App() {
-	// const [isLogged, setIsLogged] = useToogle(false);
+	// state user
 	const { isLoggedIn } = useSelector(state => state.user);
-	console.log(useSelector(state => state.user));
+
 	return (
 		<div className='p-2 bg-black min-h-screen w-ful text-light font-manrope overflow-hidden relative pb-8'>
 			<Suspense fallback={<p>loading ...</p>}>

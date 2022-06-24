@@ -3,3 +3,4 @@ export * from './bundles.const';
 export * from './collection.const';
 export * from './form.const';
 export * from './user.const'
+export * from './NFTs.const'

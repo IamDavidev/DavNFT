@@ -5,6 +5,11 @@ export const INITIAL_STATE_FORM = {
     isValid: false,
     value: ""
   },
+  name: {
+    message: null,
+    isValid: false,
+    value: ""
+  },
   confirmPassword: {
     message: null,
     isValid: false,
@@ -30,10 +35,6 @@ export const INITIAL_STATE_FORM = {
     isValid: true,
     value: ""
   },
-  name: {
-    message: null,
-    isValid: false,
-    value: ""
-  },
+
   formIsValid: false
 };

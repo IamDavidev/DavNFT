@@ -1,12 +1,6 @@
-import CardCollection from '../components/CardCollection.component';
-import { useBundlesNFTs } from '../lib/hooks';
-
 const GridCollections = () => {
-	const { bundles } = useBundlesNFTs();
-	console.log(
-		'🚀 ~ file: GridCollections.jsx ~ line 6 ~ GridCollections ~ bundles',
-		bundles
-	);
+	// const nfts = useNFTs();
+	// console.log('>>nfts', nfts);
 
 	return (
 		<>
@@ -14,25 +8,6 @@ const GridCollections = () => {
 				<div>
 					<h2>Discover More Collections</h2>
 				</div>
-				{bundles.loading && <p>Loading...</p>}
-				<section className='flex flex-wrap  justify-center items-center gap-6'>
-					{bundles?.results?.map(collection => {
-						if (!collection) return null;
-
-						return (
-							<CardCollection
-								key={collection.id}
-								banner={collection.banner}
-								creator={collection.symbol}
-								image={collection.imgCollection}
-								name={collection.nameCollection}
-								address={collection.address}
-								slug={collection.slug}
-							/>
-						);
-					})}
-					<span>{bundles.limit}/1200</span>
-				</section>
 			</section>
 		</>
 	);
