@@ -1,6 +1,14 @@
+import { useNFTs } from '../lib/hooks';
+
 const GridCollections = () => {
-	// const nfts = useNFTs();
+	//
+	const nfts = useNFTs();
+
 	// console.log('>>nfts', nfts);
+
+	console.log('>>nfts', nfts);
+
+	//
 
 	return (
 		<>

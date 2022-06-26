@@ -41,6 +41,7 @@ const SignInPage = () => {
 								type={'text'}
 								isValid={form.name.isValid}
 								key={'name'}
+								name={'name'}
 							/>
 							<InputForm
 								id={'username'}
@@ -50,6 +51,7 @@ const SignInPage = () => {
 								type={'text'}
 								isValid={form.username.isValid}
 								key={'username'}
+								name={'username'}
 							/>
 						</LayoutFlex>
 						<LayoutFlex>
@@ -61,6 +63,7 @@ const SignInPage = () => {
 								type={'password'}
 								isValid={form.password.isValid}
 								key={'password'}
+								name={'password'}
 							/>
 							<InputForm
 								id='confirmPassword'
@@ -70,6 +73,7 @@ const SignInPage = () => {
 								type={'password'}
 								isValid={form.confirmPassword.isValid}
 								key={'confirmPassword'}
+								name={'confirmPassword'}
 							/>{' '}
 						</LayoutFlex>
 
@@ -82,6 +86,7 @@ const SignInPage = () => {
 							type={'email'}
 							isValid={form.email.isValid}
 							key={'email'}
+							name={'email'}
 						/>
 						<LayoutFlex>
 							<InputForm
@@ -94,6 +99,7 @@ const SignInPage = () => {
 									accept: 'image/*',
 								}}
 								key={'banner'}
+								name={'banner'}
 							/>
 							<InputForm
 								id='profilePicture'
@@ -105,6 +111,7 @@ const SignInPage = () => {
 									accept: 'image/*',
 								}}
 								key={'profilePicture'}
+								name={'profilePicture'}
 							/>
 						</LayoutFlex>
 

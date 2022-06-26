@@ -6,11 +6,13 @@ const InputForm = ({
 	message,
 	label,
 	attributes,
+	name,
 }) => {
 	return (
 		<div className='w-full my-2'>
 			<label className='block text-sm font-bold mb-1'>{label}</label>
 			<input
+				name={name}
 				type={type}
 				placeholder={placeholder}
 				id={id}

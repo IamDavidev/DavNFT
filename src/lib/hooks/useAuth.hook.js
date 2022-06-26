@@ -16,12 +16,12 @@ export default function useAuth() {
     const sighInWithGoogle = () => ''
 
     const signInWithGmailandPassword = async ({ email, password }) => {
-        // guardar el perfil en local 
+
         const { error, user } = await supabase.auth.signIn({
             email,
             password
         })
-        // save user in global state
+
         return {
             user,
             error
