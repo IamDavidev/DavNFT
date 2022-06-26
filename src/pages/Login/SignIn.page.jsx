@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { useForm, useLogin } from '../../lib/hooks';
+import { useForm } from '../../lib/hooks';
 
 import InputForm from '../../components/InputForm.component';
 
@@ -11,11 +11,10 @@ import LayoutFlex from '../../containers/layoutFlex.container';
 
 const SignInPage = () => {
 	const { form, ValidationsFiels } = useForm();
-	const { connectWalletMetamask } = useLogin();
 
 	return (
-		<div className='flex  justify-around items-center my-10'>
-			<div className='flex flex-col justify-start w-1/3'>
+		<div className='flex flex-col md:flex-row justify-around items-center my-10'>
+			<div className='flex flex-col justify-start w-full mx-6 md:w-1/3'>
 				<div>
 					<span className='text-navy font-bold text-xl'>Start for free</span>
 					<h2 className='text-4xl font-bold my-3'>
@@ -42,6 +41,7 @@ const SignInPage = () => {
 								type={'text'}
 								isValid={form.name.isValid}
 								key={'name'}
+								name={'name'}
 							/>
 							<InputForm
 								id={'username'}
@@ -51,6 +51,7 @@ const SignInPage = () => {
 								type={'text'}
 								isValid={form.username.isValid}
 								key={'username'}
+								name={'username'}
 							/>
 						</LayoutFlex>
 						<LayoutFlex>
@@ -62,6 +63,7 @@ const SignInPage = () => {
 								type={'password'}
 								isValid={form.password.isValid}
 								key={'password'}
+								name={'password'}
 							/>
 							<InputForm
 								id='confirmPassword'
@@ -71,6 +73,7 @@ const SignInPage = () => {
 								type={'password'}
 								isValid={form.confirmPassword.isValid}
 								key={'confirmPassword'}
+								name={'confirmPassword'}
 							/>{' '}
 						</LayoutFlex>
 
@@ -83,6 +86,7 @@ const SignInPage = () => {
 							type={'email'}
 							isValid={form.email.isValid}
 							key={'email'}
+							name={'email'}
 						/>
 						<LayoutFlex>
 							<InputForm
@@ -95,6 +99,7 @@ const SignInPage = () => {
 									accept: 'image/*',
 								}}
 								key={'banner'}
+								name={'banner'}
 							/>
 							<InputForm
 								id='profilePicture'
@@ -106,6 +111,7 @@ const SignInPage = () => {
 									accept: 'image/*',
 								}}
 								key={'profilePicture'}
+								name={'profilePicture'}
 							/>
 						</LayoutFlex>
 
@@ -126,7 +132,8 @@ const SignInPage = () => {
 							<button
 								onClick={() => {
 									// connectorWallet();
-									connectWalletMetamask();
+									// connectWalletMetamask();
+									console.log('connect wallet');
 								}}
 								className='w-full py-2 rounded-xl bg-nav flex  justify-center items-center gap-8'>
 								<span className='text-purple font-bold'>Metamask</span>

@@ -1,18 +1,20 @@
 
-export function isValidPassword(setPassword, password) {
-
+export function checkingIsValidPassword(setPassword, password) {
 
   const value = password.value
 
-  const setErrorPassword = msg => setPassword(
-    prev => ({
-      ...prev,
-      password: {
-        message: msg,
-        isValid: false
-      }
-    })
-  )
+  const setErrorPassword = msg => {
+    setPassword(
+      prev => ({
+        ...prev,
+        password: {
+          message: msg,
+          checkingIsValid: false
+        }
+      })
+    )
+    return false
+  }
 
 
   if (value === '') return setErrorPassword('Password is required')
@@ -30,26 +32,29 @@ export function isValidPassword(setPassword, password) {
   setPassword(prev => ({
     ...prev,
     password: {
-      message: "success",
-      isValid: true,
+      message: null,
+      checkingIsValid: true,
       value
     }
   }))
   return true
 }
 
-export function isValidPasswordConfirmation(setConfirmPassword, password, confirmPassword) {
+export function checkingIsValidPasswordConfirmation(setConfirmPassword, password, confirmPassword) {
 
   const value = confirmPassword.value
   const valuePassword = password.value
 
-  const setErrorConfirmPassword = msg => setConfirmPassword(prev => ({
-    ...prev,
-    confirmPassword: {
-      message: msg,
-      isValid: false,
-    }
-  }))
+  const setErrorConfirmPassword = msg => {
+    setConfirmPassword(prev => ({
+      ...prev,
+      confirmPassword: {
+        message: msg,
+        checkingIsValid: false,
+      }
+    }))
+    return false
+  }
 
   // if (!password) return setErrorConfirmPassword('Password is required')
   if (value === '') return setErrorConfirmPassword('Password confirmation is required')
@@ -60,8 +65,8 @@ export function isValidPasswordConfirmation(setConfirmPassword, password, confir
   setConfirmPassword(prev => ({
     ...prev,
     confirmPassword: {
-      message: "success",
-      isValid: true,
+      message: null,
+      checkingIsValid: true,
       value
     }
   }))
@@ -69,7 +74,7 @@ export function isValidPasswordConfirmation(setConfirmPassword, password, confir
   return true
 }
 
-export function isValidEmail(setEmail, email) {
+export function checkingIsValidEmail(setEmail, email) {
 
   const value = email.value
 
@@ -78,9 +83,10 @@ export function isValidEmail(setEmail, email) {
       ...prev,
       email: {
         message: msg,
-        isValid: false,
+        checkingIsValid: false,
       }
     }))
+    return false
   }
 
   if (value === '') return setErrorEmail('Email is required')
@@ -92,25 +98,28 @@ export function isValidEmail(setEmail, email) {
   setEmail(prev => ({
     ...prev,
     email: {
-      message: "success",
-      isValid: true,
+      message: null,
+      checkingIsValid: true,
       value
     }
   }))
   return true
 }
 
-export function isValidUsername(setUserName, username) {
+export function checkingIsValidUsername(setUserName, username) {
 
   const value = username.value
 
-  const setErrorUserName = msg => setUserName(prev => ({
-    ...prev,
-    username: {
-      message: msg,
-      isValid: false,
-    }
-  }))
+  const setErrorUserName = msg => {
+    setUserName(prev => ({
+      ...prev,
+      username: {
+        message: msg,
+        checkingIsValid: false,
+      }
+    }))
+    return false
+  }
 
 
   if (value === '') return setErrorUserName('Username is required')
@@ -128,8 +137,8 @@ export function isValidUsername(setUserName, username) {
   setUserName(prev => ({
     ...prev,
     username: {
-      message: "success",
-      isValid: true,
+      message: null,
+      checkingIsValid: true,
       value
     }
   }))
@@ -137,17 +146,20 @@ export function isValidUsername(setUserName, username) {
 
 }
 
-export function isValidName(setName, name) {
+export function checkingIsValidName(setName, name) {
 
   const value = name.value;
 
-  const setErrorName = msg => setName(prev => ({
-    ...prev,
-    name: {
-      message: msg,
-      isValid: false
-    }
-  }))
+  const setErrorName = msg => {
+    setName(prev => ({
+      ...prev,
+      name: {
+        message: msg,
+        checkingIsValid: false
+      }
+    }))
+    return false
+  }
 
 
   if (value === '') return setErrorName('Name is required')
@@ -156,8 +168,8 @@ export function isValidName(setName, name) {
   setName(prev => ({
     ...prev,
     name: {
-      message: "success",
-      isValid: true,
+      message: null,
+      checkingIsValid: true,
       value
     }
   }))
@@ -165,15 +177,3 @@ export function isValidName(setName, name) {
   return true
 }
 
-
-export function isValidForm(setFormValid, form) {
-
-  const fields = [form.confirmPassword.isValid, form.email.isValid, form.name.isValid, form.password.isValid, form.username.isValid]
-
-  if (fields.includes(false)) return setFormValid(false)
-
-
-  setFormValid(true)
-
-
-}

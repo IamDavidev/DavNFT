@@ -1,7 +1,7 @@
 export const INITIAL_EMPTY_USER_STATE = {
     id: null,
     user: {
-        username: null,
+        userName: null,
         email: null,
         name: null,
         profilePicture: null,
